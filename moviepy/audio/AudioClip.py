@@ -6,7 +6,7 @@ from moviepy.tools import (deprecated_version_of,
                            extensions_dict)
 
 from moviepy.Clip import Clip
-from tqdm import tqdm
+from tqdm import tqdm, tqdm_notebook
 
 class AudioClip(Clip):
     """ Base class for audio clips.
@@ -80,7 +80,7 @@ class AudioClip(Clip):
                                          buffersize=chunksize)
 
         if progress_bar:
-            return tqdm(generator(), total=nchunks)
+            return tqdm_notebook(generator(), total=nchunks)
         else:
             return generator()
 

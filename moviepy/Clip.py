@@ -13,7 +13,7 @@ from moviepy.decorators import (apply_to_mask,
                                 outplace,
                                 convert_to_seconds,
                                 use_clip_fps_by_default)
-from tqdm import tqdm
+from tqdm import tqdm, tqdm_notebook
 
 
 class Clip:
@@ -483,7 +483,7 @@ class Clip:
 
         if progress_bar:
             nframes = int(self.duration*fps)+1
-            return tqdm(generator(), total=nframes)
+            return tqdm_notebook(generator(), total=nframes)
 
         return generator()
 
